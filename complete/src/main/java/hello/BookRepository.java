@@ -2,6 +2,6 @@ package hello;
 
 public interface BookRepository {
 
-    Book getByIsbn(String isbn);
+    public Book getByIsbn(String isbn);
 
 }

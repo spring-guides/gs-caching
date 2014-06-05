@@ -1,7 +1,7 @@
 buildscript {
     repositories {
-        maven { url "http://repo.spring.io/libs-milestone" }
         mavenLocal()
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.2.RELEASE")
@@ -14,13 +14,13 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'draft-gs-caching'
+    baseName = 'gs-caching'
     version =  '0.1.0'
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
-    maven { url "http://repo.spring.io/libs-milestone" }
 }
 
 dependencies {
