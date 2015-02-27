@@ -80,6 +80,13 @@ Next, wire up the repository and use it to access some books.
 include::initial/src/main/java/hello/Application.java[]
 ----
 
+`@SpringBootApplication` is a convenience annotation that adds all of the following:
+
+- `@Configuration` tags the class as a source of bean definitions for the application context.
+- `@EnableAutoConfiguration` tells Spring Boot to start adding beans based on classpath settings, other beans, and various property settings. Technically, Spring Boot doesn't have anything to auto-configure when it comes to caching but a future version might.
+- `@ComponentScan` tells Spring to look for other components, configurations, and services in the the `hello` package, allowing it to find the `SimpleBookRepository`.
+
+
 If you try to run the application at this point, you'll notice it's quite slow even though you are retrieving
 the exact same book several times.
 

@@ -7,15 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 public class Application {
 
-    private final static Logger log = LoggerFactory.getLogger(Application.class);
+    private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-    @Configuration
+    @Component
     static class Runner implements CommandLineRunner {
         @Autowired
         private BookRepository bookRepository;
@@ -27,11 +26,6 @@ public class Application {
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
         }
-    }
-
-    @Bean
-    public BookRepository bookRepository() {
-        return new SimpleBookRepository();
     }
 
     public static void main(String[] args) {
