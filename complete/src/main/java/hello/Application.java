@@ -11,7 +11,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 @SpringBootApplication
 @EnableCaching
@@ -19,7 +19,7 @@ public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-    @Configuration
+    @Component
     static class Runner implements CommandLineRunner {
         @Autowired
         private BookRepository bookRepository;
@@ -34,11 +34,6 @@ public class Application {
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
             log.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
         }
-    }
-
-    @Bean
-    public BookRepository bookRepository() {
-        return new SimpleBookRepository();
     }
 
     @Bean
