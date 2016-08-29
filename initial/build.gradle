@@ -29,6 +29,3 @@ dependencies {
     compile("org.springframework:spring-context")
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.3'
-}
