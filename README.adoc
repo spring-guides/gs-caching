@@ -13,6 +13,7 @@ projects: [spring-framework]
 :CacheManager: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/CacheManager.html
 :documentation: http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
 :bootcaching: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-caching.html
+:runner: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner
 :toc:
 :icons: font
 :source-highlighter: prettify
@@ -71,7 +72,7 @@ guide, you will simply use a naive implementation that simulates some latency
 include::initial/src/main/java/hello/SimpleBookRepository.java[]
 ----
 
-`simulateSlowService` is deliberately inserting a five second delay into each `getByIsbn` call. This is an example that later on, you'll speed up with caching.
+`simulateSlowService` is deliberately inserting a three second delay into each `getByIsbn` call. This is an example that later on, you'll speed up with caching.
 
 == Using the repository
 Next, wire up the repository and use it to access some books.
@@ -84,20 +85,25 @@ include::initial/src/main/java/hello/Application.java[]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-application.adoc[]
 
+There is also a {runner}[`CommandLineRunner`] that injects the `BookRepository` and calls it several times with different arguments.
+
+`src/main/java/hello/AppRunner.java`
+[source,java]
+----
+include::complete/src/main/java/hello/AppRunner.java[]
+----
+
 If you try to run the application at this point, you'll notice it's quite slow even though you are retrieving
 the exact same book several times.
 
 ----
 2014-06-05 12:15:35.783  ... : .... Fetching books
 2014-06-05 12:15:40.783  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:15:45.784  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:15:50.786  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2014-06-05 12:15:43.784  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2014-06-05 12:15:46.786  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
 ----
 
-As can be seen by the timestamps, each book took about five seconds to retrieve, even though it's the same title being repeatedly fetched.
-
-NOTE: This application using Spring Boot's http://docs.spring.io/spring-boot/docs/{spring_boot_version}/reference/htmlsingle/#boot-features-command-line-runner[CommandLineRunner].
-This class makes it super simple to write code that runs once the application context has been configured.
+As can be seen by the timestamps, each book took about three seconds to retrieve, even though it's the same title being repeatedly fetched.
 
 == Enable caching
 
@@ -130,6 +136,8 @@ The annotations that are managed by this post processor are {Cacheable}[`Cacheab
 Spring Boot automatically configures a suitable {CacheManager}[`CacheManager`] to serve as
 a provider for the relevant cache. See {bootcaching}[the Spring Boot documentation] for more details.
 
+Our sample does not use a specific caching library so our cache store is the simple fallback that uses `ConcurrentHashMap`. The caching abstraction supports a wide range of cache library and is fully compliant with JSR-107 (JCache).
+
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
@@ -142,16 +150,16 @@ Now that caching is enabled, you can execute it again and see the difference by 
 calls with or without the same isbn. It should make a huge difference.
 
 ----
-2014-06-05 12:09:23.862 ... : .... Fetching books
-2014-06-05 12:09:28.866 ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:09:33.867 ... : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
-2014-06-05 12:09:33.867 ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:09:33.867 ... : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
-2014-06-05 12:09:33.868 ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:09:33.868 ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2016-09-01 11:12:47.033  .. : .... Fetching books
+2016-09-01 11:12:50.039  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2016-09-01 11:12:53.044  .. : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2016-09-01 11:12:53.045  .. : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
 ----
 
-This excerpt from the console shows that the first time to fetch each title took five seconds the first time, but each subsequent call was near instantaneous.
+This excerpt from the console shows that the first time to fetch each title took three seconds, but each subsequent call was near instantaneous.
 
 
 == Summary
