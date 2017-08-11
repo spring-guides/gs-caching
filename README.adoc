@@ -166,8 +166,12 @@ This excerpt from the console shows that the first time to fetch each title took
 
 Congratulations! You've just enabled caching on a Spring managed bean.
 
+== See Also
 
+The following guides may also be helpful:
 
+* https://spring.io/guides/gs/caching-gemdire/[Caching Data with Gemfire]
+* https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
-
