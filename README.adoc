@@ -170,7 +170,7 @@ Congratulations! You've just enabled caching on a Spring managed bean.
 
 The following guides may also be helpful:
 
-* https://spring.io/guides/gs/caching-gemdire/[Caching Data with Gemfire]
+* https://spring.io/guides/gs/caching-gemfire/[Caching Data with Gemfire]
 * https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
 * https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
 
