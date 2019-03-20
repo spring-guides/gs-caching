@@ -1,15 +1,15 @@
 :spring_version: current
-:spring_boot_version: 2.2.1.RELEASE
-:SpringData: http://projects.spring.io/spring-data/
-:Cacheable: http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
-:CachePut: http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
-:CacheEvict: http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CacheEvict.html
-:CachingConfigurer: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/CachingConfigurer.html
-:EnableCaching: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/EnableCaching.html
-:CacheManager: http://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/CacheManager.html
-:documentation: http://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
+:spring_boot_version: 2.2.2.RELEASE
+:SpringData: https://projects.spring.io/spring-data/
+:Cacheable: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
+:CachePut: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
+:CacheEvict: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CacheEvict.html
+:CachingConfigurer: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/CachingConfigurer.html
+:EnableCaching: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/EnableCaching.html
+:CacheManager: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/CacheManager.html
+:documentation: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
 :bootcaching: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-caching.html
-:runner: http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner
+:runner: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner
 :toc:
 :icons: font
 :source-highlighter: prettify
