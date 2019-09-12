@@ -1,4 +1,4 @@
-package hello;
+package com.example.caching;
 
 public interface BookRepository {
 
