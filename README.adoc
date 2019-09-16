@@ -157,12 +157,12 @@ include::complete/src/main/java/com/example/caching/SimpleBookRepository.java[]
 ====
 
 You now need to enable the processing of the caching annotations, as the following example
-(from `src/main/java/com/example/caching/Application.java`) shows how to do:
+(from `src/main/java/com/example/caching/CachingApplication.java`) shows how to do:
 
 ====
 [source,java]
 ----
-include::complete/src/main/java/com/example/caching/Application.java[]
+include::complete/src/main/java/com/example/caching/CachingApplication.java[]
 ----
 ====
 
