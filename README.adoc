@@ -171,7 +171,7 @@ inspects every Spring bean for the presence of caching annotations on public
 methods. If such an annotation is found, a proxy is automatically created to intercept
 the method call and handle the caching behavior accordingly.
 
-The post-processor handlesthe  {Cacheable}[`@Cacheable`], {CachePut}[`@CachePut`] and
+The post-processor handles the  {Cacheable}[`@Cacheable`], {CachePut}[`@CachePut`] and
 {CacheEvict}[`@CacheEvict`] annotations. You can refer to the Javadoc and
 {documentation}[the reference guide] for more detail.
 
