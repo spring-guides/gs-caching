@@ -69,7 +69,7 @@ First, you need to create a simple model for your book. The following listing (f
 `src/main/java/com/example/caching/Book.java`) shows how to do so:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::initial/src/main/java/com/example/caching/Book.java[]
 ----
@@ -79,7 +79,7 @@ You also need a repository for that model. The following listing (from
 `src/main/java/com/example/caching/BookRepository.java`) shows such a repository:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::initial/src/main/java/com/example/caching/BookRepository.java[]
 ----
@@ -92,7 +92,7 @@ guide, you will simply use a naive implementation that simulates some latency
 `src/main/java/com/example/caching/SimpleBookRepository.java`) shows such a repository:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::initial/src/main/java/com/example/caching/SimpleBookRepository.java[]
 ----
@@ -108,7 +108,7 @@ listing (from `src/main/java/com/example/caching/CachingApplication.java`) shows
 so:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::initial/src/main/java/com/example/caching/CachingApplication.java[]
 ----
@@ -121,7 +121,7 @@ it several times with different arguments. The following listing (from
 `src/main/java/com/example/caching/AppRunner.java`) shows that class:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/com/example/caching/AppRunner.java[]
 ----
@@ -150,7 +150,7 @@ within the `books` cache. The following listing (from
 definition:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/com/example/caching/SimpleBookRepository.java[]
 ----
@@ -160,7 +160,7 @@ You now need to enable the processing of the caching annotations, as the followi
 (from `src/main/java/com/example/caching/CachingApplication.java`) shows how to do:
 
 ====
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/com/example/caching/CachingApplication.java[]
 ----
