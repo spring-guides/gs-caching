@@ -213,4 +213,12 @@ the cache is doing its job.
 
 Congratulations! You've just enabled caching on a Spring managed bean.
 
+== See Also
+
+The following guides may also be helpful:
+
+* https://spring.io/guides/gs/caching-gemfire/[Caching Data with Gemfire]
+* https://spring.io/guides/gs/serving-web-content/[Serving Web Content with Spring MVC]
+* https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
+
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
