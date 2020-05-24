@@ -64,7 +64,7 @@ include::complete/build.gradle[]
 ====
 
 [[initial]]
-== Create a Book Repository
+== Create a Book Model
 
 First, you need to create a simple model for your book. The following listing (from
 `src/main/java/com/example/caching/Book.java`) shows how to do so:
@@ -75,6 +75,8 @@ First, you need to create a simple model for your book. The following listing (f
 include::initial/src/main/java/com/example/caching/Book.java[]
 ----
 ====
+
+== Create a Book Repository
 
 You also need a repository for that model. The following listing (from
 `src/main/java/com/example/caching/BookRepository.java`) shows such a repository:
