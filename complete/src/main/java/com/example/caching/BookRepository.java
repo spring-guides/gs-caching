@@ -6,6 +6,8 @@ public interface BookRepository {
 
 	Book updateByIsbn(String isbn);
 
-	void deleteByIsbn(String isbn);
+	String deleteByIsbn(String isbn);
+
+	String deleteAllIsbn();
 
 }

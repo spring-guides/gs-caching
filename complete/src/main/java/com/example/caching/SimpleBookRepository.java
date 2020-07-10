@@ -22,11 +22,17 @@ public class SimpleBookRepository implements BookRepository {
 	}
 
 	@Override
-	@CacheEvict(cacheNames = "books", allEntries = true, key = "#isbn")
-	public void deleteByIsbn(String isbn) {
-		// TODO Auto-generated method stub
-
+	@CacheEvict(cacheNames = "books", key = "#isbn")
+	public String deleteByIsbn(String isbn) {
+		return "delete books";
 	}
+	
+	@Override
+	@CacheEvict(cacheNames = "books", allEntries = true)
+	public String deleteAllIsbn() {
+		return "delete books";
+	}
+
 
 	// Don't do this at home
 	private void simulateSlowService() {
