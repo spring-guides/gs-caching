@@ -17,13 +17,13 @@ public class SimpleBookRepository implements BookRepository {
 
 	@Override
 	@CachePut(cacheNames = "books" , key = "#isbn")
-	public Book updateBokByIsbn(String isbn) {
+	public Book updateByIsbn(String isbn) {
 		return new Book(isbn, "Update book");
 	}
 
 	@Override
-	@CacheEvict(cacheNames = "books", allEntries = true)
-	public void deleteBookCache(String isbn) {
+	@CacheEvict(cacheNames = "books", allEntries = true, key = "#isbn")
+	public void deleteByIsbn(String isbn) {
 		// TODO Auto-generated method stub
 
 	}

@@ -4,8 +4,8 @@ public interface BookRepository {
 
 	Book getByIsbn(String isbn);
 
-	Book updateBokByIsbn(String isbn);
+	Book updateByIsbn(String isbn);
 
-	void deleteBookCache(String isbn);
+	void deleteByIsbn(String isbn);
 
 }

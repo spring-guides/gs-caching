@@ -29,15 +29,16 @@ public class AppRunner implements CommandLineRunner {
 		// updating cache
 
 		logger.info(".... Fetching books");
-		logger.info("isbn-1234 -->" + bookRepository.updateBokByIsbn("isbn-1234"));
-		logger.info("isbn-4567 -->" + bookRepository.updateBokByIsbn("isbn-4567"));
+		logger.info("isbn-1234 -->" + bookRepository.updateByIsbn("isbn-1234"));
+		logger.info("isbn-4567 -->" + bookRepository.updateByIsbn("isbn-4567"));
 
 		// fetch after updating book
 		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
 		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
 
 		// deleting cache
-		 bookRepository.deleteBookCache("isbn-1234");
+		 bookRepository.deleteByIsbn("isbn-1234");
+		 bookRepository.deleteByIsbn("isbn-4567");
 		
 		// fetch after after deletion book
 		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
