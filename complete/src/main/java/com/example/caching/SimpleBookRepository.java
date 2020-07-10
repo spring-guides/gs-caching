@@ -16,9 +16,9 @@ public class SimpleBookRepository implements BookRepository {
 
 	@Override
 	@CachePut("books")
-	public Book putByIsbn(String isbn) {
+	public Book updateBokByIsbn(String isbn) {
 		simulateSlowService();
-		return new Book(isbn, "Some book");
+		return new Book(isbn, "Update book");
 	}
 
 	// Don't do this at home
