@@ -1,5 +1,6 @@
 package com.example.caching;
 
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
@@ -8,17 +9,23 @@ import org.springframework.stereotype.Component;
 public class SimpleBookRepository implements BookRepository {
 
 	@Override
-	@Cacheable("books")
+	@Cacheable(cacheNames = "books", key = "#isbn")
 	public Book getByIsbn(String isbn) {
 		simulateSlowService();
 		return new Book(isbn, "Some book");
 	}
 
 	@Override
-	@CachePut("books")
+	@CachePut(cacheNames = "books" , key = "#isbn")
 	public Book updateBokByIsbn(String isbn) {
-		simulateSlowService();
 		return new Book(isbn, "Update book");
+	}
+
+	@Override
+	@CacheEvict(cacheNames = "books", allEntries = true)
+	public void deleteBookCache(String isbn) {
+		// TODO Auto-generated method stub
+
 	}
 
 	// Don't do this at home
