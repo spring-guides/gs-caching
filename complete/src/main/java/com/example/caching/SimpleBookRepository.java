@@ -9,30 +9,29 @@ import org.springframework.stereotype.Component;
 public class SimpleBookRepository implements BookRepository {
 
 	@Override
-	@Cacheable(cacheNames = "books", key = "#isbn")
+	@Cacheable(value = "books", key = "#isbn")
 	public Book getByIsbn(String isbn) {
 		simulateSlowService();
 		return new Book(isbn, "Some book");
 	}
 
 	@Override
-	@CachePut(cacheNames = "books" , key = "#isbn")
+	@CachePut(value = "books", key = "#isbn")
 	public Book updateByIsbn(String isbn) {
 		return new Book(isbn, "Update book");
 	}
 
 	@Override
-	@CacheEvict(cacheNames = "books", key = "#isbn")
+	@CacheEvict(value = "books", key = "#isbn")
 	public String deleteByIsbn(String isbn) {
 		return "delete books";
 	}
-	
+
 	@Override
-	@CacheEvict(cacheNames = "books", allEntries = true)
+	@CacheEvict(value = "books", allEntries = true)
 	public String deleteAllIsbn() {
 		return "delete books";
 	}
-
 
 	// Don't do this at home
 	private void simulateSlowService() {
