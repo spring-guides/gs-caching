@@ -49,6 +49,11 @@ public class AppRunner implements CommandLineRunner {
 		// fetch after after deletion book
 		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
 		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+		
+		
+		logger.info(" books"  +bookRepository.getAllBooks()); // getting from db it not in cache
+		
+		logger.info(" books"  +bookRepository.getAllBooks()); //getting from cache because earlier method already will put all books in cache
 	}
 
 }
