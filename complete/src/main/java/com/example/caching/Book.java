@@ -1,7 +1,10 @@
 package com.example.caching;
 
-public class Book {
+import java.io.Serializable;
 
+public class Book implements Serializable{
+
+	private static final long serialVersionUID = -9104737521522400280L;
 	private String isbn;
 	private String title;
 

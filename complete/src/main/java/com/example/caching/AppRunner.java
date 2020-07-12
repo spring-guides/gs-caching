@@ -25,6 +25,35 @@ public class AppRunner implements CommandLineRunner {
 		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
 		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
 		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+
+		// updating cache
+
+		logger.info(".... Fetching books");
+		logger.info("isbn-1234 -->" + bookRepository.updateByIsbn("isbn-1234"));
+		logger.info("isbn-4567 -->" + bookRepository.updateByIsbn("isbn-4567"));
+
+		// fetch after updating book
+		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+
+		// deleting data for "isbn-1234" from cache
+		bookRepository.deleteByIsbn("isbn-1234");
+
+		// fetch after after deletion book
+		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+
+		// deleting all the data from cache
+		bookRepository.deleteAllIsbn();
+
+		// fetch after after deletion book
+		logger.info("isbn-1234 -->" + bookRepository.getByIsbn("isbn-1234"));
+		logger.info("isbn-4567 -->" + bookRepository.getByIsbn("isbn-4567"));
+		
+		
+		logger.info(" books"  +bookRepository.getAllBooks()); // getting from db it not in cache
+		
+		logger.info(" books"  +bookRepository.getAllBooks()); //getting from cache because earlier method already will put all books in cache
 	}
 
 }
