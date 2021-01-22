@@ -1,5 +1,5 @@
 :spring_version: current
-:spring_boot_version: 2.3.2.RELEASE
+:spring_boot_version: 2.4.2.RELEASE
 :SpringData: https://projects.spring.io/spring-data/
 :Cacheable: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
 :CachePut: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
@@ -37,6 +37,7 @@ Initializr]. The Initializr offers a fast way to pull in all the dependencies yo
 an application and does a lot of the set up for you. This example needs only the Spring
 cache abstraction dependency.
 
+You can get a Maven build file with the necessary dependencies directly from the https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=caching&name=caching&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.caching&dependencies=cache[Spring Initializr].
 The following listing shows the `pom.xml` file created when you choose Maven:
 
 ====
@@ -46,6 +47,7 @@ include::complete/pom.xml[]
 ----
 ====
 
+You can get a Gradle build file with the necessary dependencies directly from the https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.4.2.RELEASE&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=caching&name=caching&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.caching&dependencies=cache[Spring Initializr].
 The following listing shows the `build.gradle` file created when you choose Gradle:
 
 ====
