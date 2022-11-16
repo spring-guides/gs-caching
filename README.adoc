@@ -7,9 +7,9 @@
 :CachingConfigurer: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/CachingConfigurer.html
 :EnableCaching: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/EnableCaching.html
 :CacheManager: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/CacheManager.html
-:documentation: https://docs.spring.io/spring/docs/current/spring-framework-reference/html/cache.html
-:bootcaching: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-caching.html
-:runner: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-command-line-runner
+:documentation: https://docs.spring.io/spring/docs/{spring_version}/spring-framework-reference/html/cache.html
+:bootcaching: https://docs.spring.io/spring-boot/docs/current/reference/html/io.html#io.caching
+:runner: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.spring-application.command-line-runner
 :toc:
 :icons: font
 :source-highlighter: prettify
