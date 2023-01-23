@@ -1,5 +1,5 @@
 :spring_version: current
-:spring_boot_version: 2.4.3
+:spring_boot_version: 3.0.2
 :SpringData: https://projects.spring.io/spring-data/
 :Cacheable: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
 :CachePut: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
@@ -24,7 +24,6 @@ You will build an application that enables caching on a simple book repository.
 
 == What You need
 
-:java_version: 1.8
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/prereq_editor_jdk_buildtools.adoc[]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/how_to_complete_this_guide.adoc[]
@@ -32,7 +31,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [[scratch]]
 == Starting with Spring Initializr
 
-You can use this https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=caching&name=caching&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.caching&dependencies=cache[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
+You can use this https://start.spring.io/#!type=gradle-project&language=java&platformVersion=3.0.2&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=caching&name=caching&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.caching&dependencies=cache[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
 
 To manually initialize the project:
 
