@@ -1,10 +1,7 @@
 :spring_version: current
-:spring_boot_version: 3.1.0
-:SpringData: https://projects.spring.io/spring-data/
 :Cacheable: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html
 :CachePut: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CachePut.html
 :CacheEvict: https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/CacheEvict.html
-:CachingConfigurer: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/CachingConfigurer.html
 :EnableCaching: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/annotation/EnableCaching.html
 :CacheManager: https://docs.spring.io/spring/docs/{spring_version}/javadoc-api/org/springframework/cache/CacheManager.html
 :documentation: https://docs.spring.io/spring/docs/{spring_version}/spring-framework-reference/html/cache.html
@@ -17,7 +14,7 @@
 
 This guide walks you through the process of enabling caching on a Spring managed bean.
 
-== What You Will build
+== What You Will Build
 
 You will build an application that enables caching on a simple book repository.
 
