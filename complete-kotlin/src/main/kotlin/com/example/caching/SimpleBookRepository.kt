@@ -14,11 +14,6 @@ class SimpleBookRepository : BookRepository {
 
     // Don't do this at home
     private fun simulateSlowService() {
-        try {
-            val time = 3000L
-            Thread.sleep(time)
-        } catch (e: InterruptedException) {
-            throw IllegalStateException(e)
-        }
+         Thread.sleep(3000L)
     }
 }
