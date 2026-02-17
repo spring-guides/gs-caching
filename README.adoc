@@ -28,58 +28,67 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 [[scratch]]
 == Starting with Spring Initializr
 
-You can use this https://start.spring.io/#!type=gradle-project&language=java&platformVersion=3.1.0&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=caching&name=caching&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.caching&dependencies=cache[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
+You can use this https://start.spring.io/#!type=gradle-project&jvmVersion=17&packaging=jar&groupId=com.example&artifactId=caching&packageName=com.example.caching&dependencies=cache[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
 
 To manually initialize the project:
 
 . Navigate to https://start.spring.io.
 This service pulls in all the dependencies you need for an application and does most of the setup for you.
-. Choose either Gradle or Maven and the language you want to use. This guide assumes that you chose Java.
+. Choose either Gradle or Maven and the language you want to use.
 . Click *Dependencies* and select *Spring cache abstraction*.
 . Click *Generate*.
 . Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
 
 NOTE: If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 
-NOTE: You can also fork the project from Github and open it in your IDE or other editor.
+NOTE: You can also fork the project from GitHub and open it in your IDE or other editor.
 
 [[initial]]
 == Create a Book Model
 
-First, you need to create a simple model for your book. The following listing (from
-`src/main/java/com/example/caching/Book.java`) shows how to do so:
+First, you need to create a simple model for your book. The following listing shows how to do so:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::initial/src/main/java/com/example/caching/Book.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::initial-kotlin/src/main/kotlin/com/example/caching/Book.kt[]
+----
 
 == Create a Book Repository
 
-You also need a repository for that model. The following listing (from
-`src/main/java/com/example/caching/BookRepository.java`) shows such a repository:
+You also need a repository for that model. The following listing shows such a repository:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::initial/src/main/java/com/example/caching/BookRepository.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::initial-kotlin/src/main/kotlin/com/example/caching/BookRepository.kt[]
+----
 
 You could have used {SpringData}[Spring Data] to provide an implementation of your
 repository over a wide range of SQL or NoSQL stores. However, for the purpose of this
 guide, you will simply use a naive implementation that simulates some latency
-(network service, slow delay, or other issues). The following listing (from
-`src/main/java/com/example/caching/SimpleBookRepository.java`) shows such a repository:
+(network service, slow delay, or other issues). The following listing shows such a repository:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::initial/src/main/java/com/example/caching/SimpleBookRepository.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::initial-kotlin/src/main/kotlin/com/example/caching/SimpleBookRepository.kt[]
+----
 
 `simulateSlowService` deliberately inserts a three-second delay into each `getByIsbn`
 call. Later on, you will speed up this example with caching.
@@ -87,28 +96,34 @@ call. Later on, you will speed up this example with caching.
 == Using the Repository
 
 Next, you need to wire up the repository and use it to access some books. The following
-listing (from `src/main/java/com/example/caching/CachingApplication.java`) shows how to do
-so:
+listing shows how to do so:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::initial/src/main/java/com/example/caching/CachingApplication.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::initial-kotlin/src/main/kotlin/com/example/caching/CachingApplication.kt[]
+----
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/spring-boot-application-new-path.adoc[]
 
 You also need a {runner}[`CommandLineRunner`] that injects the `BookRepository` and calls
-it several times with different arguments. The following listing (from
-`src/main/java/com/example/caching/AppRunner.java`) shows that class:
+it several times with different arguments. The following listing shows that class:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::complete/src/main/java/com/example/caching/AppRunner.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::complete-kotlin/src/main/kotlin/com/example/caching/AppRunner.kt[]
+----
 
 If you try to run the application at this point, you should notice that it is quite slow,
 even though you are retrieving the exact same book several times. The following sample
@@ -128,26 +143,32 @@ We can improve the situation by enabling caching.
 == Enable caching
 
 Now you can enable caching on your `SimpleBookRepository` so that the books are cached
-within the `books` cache. The following listing (from
-`src/main/java/com/example/caching/SimpleBookRepository.java`) shows the repository
-definition:
+within the `books` cache. The following listing shows the repository definition:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::complete/src/main/java/com/example/caching/SimpleBookRepository.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::complete-kotlin/src/main/kotlin/com/example/caching/SimpleBookRepository.kt[]
+----
 
 You now need to enable the processing of the caching annotations, as the following example
-(from `src/main/java/com/example/caching/CachingApplication.java`) shows how to do:
+shows how to do:
 
-====
-[source,java,tabsize=2]
+[source,java,indent=0,subs="verbatim,quotes",role="primary"]
+.Java
 ----
 include::complete/src/main/java/com/example/caching/CachingApplication.java[]
 ----
-====
+[source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
+.Kotlin
+----
+include::complete-kotlin/src/main/kotlin/com/example/caching/CachingApplication.kt[]
+----
 
 The {EnableCaching}[`@EnableCaching`] annotation triggers a post-processor that
 inspects every Spring bean for the presence of caching annotations on public
