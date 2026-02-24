@@ -14,6 +14,6 @@ class SimpleBookRepository : BookRepository {
 
     // Don't do this at home
     private fun simulateSlowService() {
-         Thread.sleep(3000L)
+        Thread.sleep(3000L)
     }
 }
