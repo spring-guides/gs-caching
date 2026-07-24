@@ -118,9 +118,9 @@ output shows the three-second delay that our (intentionally awful) code created:
 ====
 ----
 2014-06-05 12:15:35.783  ... : .... Fetching books
-2014-06-05 12:15:40.783  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:15:43.784  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2014-06-05 12:15:46.786  ... : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2014-06-05 12:15:40.783  ... : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
+2014-06-05 12:15:43.784  ... : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
+2014-06-05 12:15:46.786  ... : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
 ----
 ====
 
@@ -180,12 +180,12 @@ The following listing shows the output with caching enabled:
 ====
 ----
 2016-09-01 11:12:47.033  .. : .... Fetching books
-2016-09-01 11:12:50.039  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2016-09-01 11:12:53.044  .. : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
-2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2016-09-01 11:12:53.045  .. : isbn-4567 -->Book{isbn='isbn-4567', title='Some book'}
-2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
-2016-09-01 11:12:53.045  .. : isbn-1234 -->Book{isbn='isbn-1234', title='Some book'}
+2016-09-01 11:12:50.039  .. : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
+2016-09-01 11:12:53.044  .. : isbn-4567 -->Book[isbn=isbn-4567, title=Some book]
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
+2016-09-01 11:12:53.045  .. : isbn-4567 -->Book[isbn=isbn-4567, title=Some book]
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
+2016-09-01 11:12:53.045  .. : isbn-1234 -->Book[isbn=isbn-1234, title=Some book]
 ----
 ====
 
